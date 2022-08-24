@@ -6,6 +6,14 @@ function start(){
     speech.start()
 };
 
+camera = document.getElementById('camera')
+Webcam.set({
+    width: 360,
+    height: 250,
+    image_format: 'png',
+    png_quality: 90
+})
+
 function speak(){
     var synth = window.speechSynthesis
     speakData = document.getElementById('textbox').value;
@@ -13,14 +21,6 @@ function speak(){
     synth.speak(utterThis)
     Webcam.attach(camera)
 }
-
-Webcam.set({
-    width: 360,
-    height: 250,
-    image_format: 'png',
-    png_quality: 90
-})
-camera = document.getElementById('camera')
 
 speech.onresult = function(event){
     console.log(event)
